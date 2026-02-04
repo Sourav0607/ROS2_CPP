@@ -17,9 +17,17 @@ ament_target_dependencies(publisher rclcpp std_msgs example_interfaces)
 add_executable(subscriber src/subscriber.cpp)
 ament_target_dependencies(subscriber rclcpp example_interfaces)
 
+add_executable(counterpub src/counter_publisher.cpp)
+ament_target_dependencies(counterpub rclcpp example_interfaces)
+
+add_executable(countersub src/counter_subscriber.cpp)
+ament_target_dependencies(countersub rclcpp example_interfaces)
+
 install(TARGETS
       publisher
       subscriber
+      counterpub
+      countersub
       DESTINATION lib/${PROJECT_NAME}
 )
 
