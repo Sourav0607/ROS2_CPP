@@ -14,8 +14,12 @@ find_package(example_interfaces REQUIRED)
 add_executable(publisher src/publisher.cpp)
 ament_target_dependencies(publisher rclcpp std_msgs example_interfaces)
 
+add_executable(subscriber src/subscriber.cpp)
+ament_target_dependencies(subscriber rclcpp example_interfaces)
+
 install(TARGETS
       publisher
+      subscriber
       DESTINATION lib/${PROJECT_NAME}
 )
 
