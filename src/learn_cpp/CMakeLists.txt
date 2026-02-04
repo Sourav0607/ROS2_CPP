@@ -23,11 +23,15 @@ ament_target_dependencies(counterpub rclcpp example_interfaces)
 add_executable(countersub src/counter_subscriber.cpp)
 ament_target_dependencies(countersub rclcpp example_interfaces)
 
+add_executable(add_two_ints_service src/simple_service.cpp)
+ament_target_dependencies(add_two_ints_service rclcpp example_interfaces)
+
 install(TARGETS
       publisher
       subscriber
       counterpub
       countersub
+      add_two_ints_service
       DESTINATION lib/${PROJECT_NAME}
 )
 
