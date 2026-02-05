@@ -29,6 +29,9 @@ ament_target_dependencies(add_two_ints_service rclcpp example_interfaces)
 add_executable(param_change src/param_change.cpp)
 ament_target_dependencies(param_change rclcpp example_interfaces)
 
+add_executable(multiple_publisher src/multiple_publisher.cpp)
+ament_target_dependencies(multiple_publisher rclcpp example_interfaces)
+
 install(TARGETS
       publisher
       subscriber
@@ -36,6 +39,7 @@ install(TARGETS
       countersub
       add_two_ints_service
       param_change
+      multiple_publisher
       DESTINATION lib/${PROJECT_NAME}
 )
 
