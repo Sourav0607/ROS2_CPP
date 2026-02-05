@@ -39,6 +39,11 @@ ament_target_dependencies(topic_remapping rclcpp example_interfaces)
 
 add_executable(lifecyclenode src/lifecycle_node.cpp)
 ament_target_dependencies(lifecyclenode rclcpp rclcpp_lifecycle lifecycle_msgs std_msgs)
+
+install(DIRECTORY 
+    launch
+    DESTINATION share/${PROJECT_NAME}/
+)
 install(TARGETS
       publisher
       subscriber
