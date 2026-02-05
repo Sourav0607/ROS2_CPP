@@ -10,6 +10,8 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(example_interfaces REQUIRED)
+find_package(rclcpp_lifecycle REQUIRED)
+find_package(lifecycle_msgs REQUIRED)
 
 add_executable(publisher src/publisher.cpp)
 ament_target_dependencies(publisher rclcpp std_msgs example_interfaces)
@@ -35,6 +37,8 @@ ament_target_dependencies(multiple_publisher rclcpp example_interfaces)
 add_executable(topic_remapping src/topic_remapping.cpp)
 ament_target_dependencies(topic_remapping rclcpp example_interfaces)
 
+add_executable(lifecyclenode src/lifecycle_node.cpp)
+ament_target_dependencies(lifecyclenode rclcpp rclcpp_lifecycle lifecycle_msgs std_msgs)
 install(TARGETS
       publisher
       subscriber
@@ -44,6 +48,7 @@ install(TARGETS
       param_change
       multiple_publisher
       topic_remapping
+      lifecyclenode
       DESTINATION lib/${PROJECT_NAME}
 )
 
