@@ -13,6 +13,7 @@ find_package(example_interfaces REQUIRED)
 find_package(rclcpp_lifecycle REQUIRED)
 find_package(lifecycle_msgs REQUIRED)
 find_package(custom_interfaces REQUIRED)
+find_package(rclcpp_action REQUIRED)
 
 add_executable(publisher src/publisher.cpp)
 ament_target_dependencies(publisher rclcpp std_msgs example_interfaces)
@@ -47,6 +48,9 @@ ament_target_dependencies(pubsub_custom rclcpp custom_interfaces)
 add_executable(robot_control_server src/robot_control_server.cpp)
 ament_target_dependencies(robot_control_server rclcpp custom_interfaces)
 
+add_executable(action_server src/action_server.cpp)
+ament_target_dependencies(action_server rclcpp_action rclcpp example_interfaces
+)
 install(DIRECTORY 
     launch
     DESTINATION share/${PROJECT_NAME}/
@@ -63,6 +67,7 @@ install(TARGETS
       lifecyclenode
       pubsub_custom
       robot_control_server
+      action_server
       DESTINATION lib/${PROJECT_NAME}
 )
 
