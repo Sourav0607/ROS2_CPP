@@ -12,6 +12,7 @@ find_package(std_msgs REQUIRED)
 find_package(example_interfaces REQUIRED)
 find_package(rclcpp_lifecycle REQUIRED)
 find_package(lifecycle_msgs REQUIRED)
+find_package(custom_interfaces REQUIRED)
 
 add_executable(publisher src/publisher.cpp)
 ament_target_dependencies(publisher rclcpp std_msgs example_interfaces)
@@ -40,6 +41,9 @@ ament_target_dependencies(topic_remapping rclcpp example_interfaces)
 add_executable(lifecyclenode src/lifecycle_node.cpp)
 ament_target_dependencies(lifecyclenode rclcpp rclcpp_lifecycle lifecycle_msgs std_msgs)
 
+add_executable(pubsub_custom src/pubsub_custom.cpp)
+ament_target_dependencies(pubsub_custom rclcpp custom_interfaces)
+
 install(DIRECTORY 
     launch
     DESTINATION share/${PROJECT_NAME}/
@@ -54,6 +58,7 @@ install(TARGETS
       multiple_publisher
       topic_remapping
       lifecyclenode
+      pubsub_custom
       DESTINATION lib/${PROJECT_NAME}
 )
 
