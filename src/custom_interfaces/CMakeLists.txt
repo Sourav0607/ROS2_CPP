@@ -12,6 +12,7 @@ find_package(rosidl_default_generators REQUIRED)
 # Generate interfaces
 rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/RobotState.msg"
+  "srv/SetSpeed.srv"
 )
 
 if(BUILD_TESTING)

@@ -44,6 +44,9 @@ ament_target_dependencies(lifecyclenode rclcpp rclcpp_lifecycle lifecycle_msgs s
 add_executable(pubsub_custom src/pubsub_custom.cpp)
 ament_target_dependencies(pubsub_custom rclcpp custom_interfaces)
 
+add_executable(robot_control_server src/robot_control_server.cpp)
+ament_target_dependencies(robot_control_server rclcpp custom_interfaces)
+
 install(DIRECTORY 
     launch
     DESTINATION share/${PROJECT_NAME}/
@@ -59,6 +62,7 @@ install(TARGETS
       topic_remapping
       lifecyclenode
       pubsub_custom
+      robot_control_server
       DESTINATION lib/${PROJECT_NAME}
 )
 
