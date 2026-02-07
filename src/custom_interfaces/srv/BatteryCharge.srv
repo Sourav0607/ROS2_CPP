@@ -1,0 +1,7 @@
+#Request
+float64 charge_amount
+---
+#Response
+float64 battery_percentage
+bool success
+string message

@@ -3,7 +3,7 @@
 #include "example_interfaces/msg/bool.hpp"
 
 using namespace std;
-using namespace placeholders;
+using namespace std::placeholders;
 
 
 class BatteryWarn : public rclcpp::Node

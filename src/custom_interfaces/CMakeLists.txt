@@ -13,6 +13,7 @@ find_package(rosidl_default_generators REQUIRED)
 rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/RobotState.msg"
   "srv/SetSpeed.srv"
+  "srv/BatteryCharge.srv"
 )
 
 if(BUILD_TESTING)
