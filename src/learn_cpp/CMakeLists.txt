@@ -16,6 +16,8 @@ find_package(custom_interfaces REQUIRED)
 find_package(rclcpp_action REQUIRED)
 find_package(tf2_ros REQUIRED)
 find_package(geometry_msgs REQUIRED)
+find_package(sensor_msgs REQUIRED)
+find_package(tf2_geometry_msgs REQUIRED)
 
 add_executable(publisher src/publisher.cpp)
 ament_target_dependencies(publisher rclcpp std_msgs example_interfaces)
@@ -57,6 +59,9 @@ ament_target_dependencies(action_server rclcpp_action rclcpp example_interfaces
 add_executable(tf2_example src/tf2_example.cpp)
 ament_target_dependencies(tf2_example rclcpp tf2_ros geometry_msgs)
 
+add_executable(tf2_listener src/tf2_listener.cpp)
+ament_target_dependencies(tf2_listener rclcpp tf2_ros geometry_msgs sensor_msgs tf2_geometry_msgs)
+
 install(DIRECTORY 
     launch
     DESTINATION share/${PROJECT_NAME}/
@@ -75,6 +80,7 @@ install(TARGETS
       robot_control_server
       action_server
       tf2_example
+      tf2_listener
       DESTINATION lib/${PROJECT_NAME}
 )
 
