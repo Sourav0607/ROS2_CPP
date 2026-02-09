@@ -14,6 +14,7 @@ rosidl_generate_interfaces(${PROJECT_NAME}
   "msg/RobotState.msg"
   "srv/SetSpeed.srv"
   "srv/BatteryCharge.srv"
+  "action/MoveDistance.action"
 )
 
 if(BUILD_TESTING)

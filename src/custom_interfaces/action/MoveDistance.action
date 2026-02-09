@@ -1,0 +1,8 @@
+#Goal
+float64 move
+---
+#Result
+bool is_moved
+---
+#Feedback
+string message

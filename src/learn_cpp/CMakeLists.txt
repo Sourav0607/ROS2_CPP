@@ -62,6 +62,9 @@ ament_target_dependencies(tf2_example rclcpp tf2_ros geometry_msgs)
 add_executable(tf2_listener src/tf2_listener.cpp)
 ament_target_dependencies(tf2_listener rclcpp tf2_ros geometry_msgs sensor_msgs tf2_geometry_msgs)
 
+add_executable(robot_movement src/robot_movement_action_server.cpp)
+ament_target_dependencies(robot_movement rclcpp rclcpp_action custom_interfaces)
+
 install(DIRECTORY 
     launch
     DESTINATION share/${PROJECT_NAME}/
@@ -81,6 +84,7 @@ install(TARGETS
       action_server
       tf2_example
       tf2_listener
+      robot_movement
       DESTINATION lib/${PROJECT_NAME}
 )
 
